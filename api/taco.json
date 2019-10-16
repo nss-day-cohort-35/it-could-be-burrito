@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "Brenda",
+      "password": "222222"
+    },
+    {
+      "email": "bbb@mail.com",
+      "password": "1111112",
+      "id": 2
+    },
+    {
+      "email": "sdf@sdf.com",
+      "password": "3333",
+      "id": 3
+    },
+    {
+      "email": "me@home.com",
+      "password": "333333",
+      "id": 4
+    },
+    {
+      "email": "me@home.com",
+      "password": "111111",
+      "id": 5
+    }
+  ],
+  "tacos": [
+    {
+      "id": 3,
+      "name": "Crunchy"
+    },
+    {
+      "id": 5,
+      "name": "soft"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "tacoId": 1,
+      "userId": 1
+    }
+  ]
+}
