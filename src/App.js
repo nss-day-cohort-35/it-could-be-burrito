@@ -7,7 +7,7 @@ import './App.css';
 class App extends Component {
   state = {
     user: localStorage.getItem("credentials") !== null,
-    userId: localStorage.getItem("credentials") ? JSON.parse(localStorage.getItem("credentials"))[0].id : false
+    userId: localStorage.getItem("credentials") !== null ? JSON.parse(localStorage.getItem("credentials")).id : false
   }
 
   // Check if credentials are in local storage
@@ -25,9 +25,10 @@ class App extends Component {
       "credentials",
       JSON.stringify(authObj)
     )
+    console.log(authObj, typeof authObj)
     this.setState({
       user: this.isAuthenticated(),
-      userId: authObj[0].id
+      userId: authObj.id
     });
   }
 

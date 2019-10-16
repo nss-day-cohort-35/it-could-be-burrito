@@ -27,15 +27,17 @@ class Login extends Component {
     .then(result => {
       console.log("what is the result of search", result)
       if (result.length > 0){
-        this.props.setUser(result);
-        this.props.history.push("/");
+        //this returns an array - we only need object
+        this.props.setUser(result[0]);
+        this.props.history.push("/ordernow");
       }else {
         APIManager.addUser(credentials)
         .then(result => {
+          //this returns an object
           console.log("result is", result);
           this.props.setUser(result);
         })
-        this.props.history.push("/");
+        this.props.history.push("/ordernow");
       }
     })
   }
