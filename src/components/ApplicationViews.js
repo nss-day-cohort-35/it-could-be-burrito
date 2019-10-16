@@ -8,7 +8,7 @@ class ApplicationViews extends Component {
     return (
       <>
         <Route path="/ordernow" render={props => {
-          return <OrderView />
+          return <OrderView userId={this.props.userId} />
         }} />
       </>
     )

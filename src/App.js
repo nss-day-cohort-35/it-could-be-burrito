@@ -6,7 +6,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    user: localStorage.getItem("credentials") !== null
+    user: localStorage.getItem("credentials") !== null,
+    userId: localStorage.getItem("credentials") ? JSON.parse(localStorage.getItem("credentials"))[0].id : false
   }
 
   // Check if credentials are in local storage
@@ -15,6 +16,7 @@ class App extends Component {
 
 
   setUser = (authObj) => {
+    console.log("authObj", authObj)
     /*
       For now, just store the email and password that
       the customer enters into local storage.
@@ -24,7 +26,8 @@ class App extends Component {
       JSON.stringify(authObj)
     )
     this.setState({
-      user: this.isAuthenticated()
+      user: this.isAuthenticated(),
+      userId: authObj[0].id
     });
   }
 
@@ -34,7 +37,7 @@ class App extends Component {
         {this.state.user ?
           <>
             <Nav />
-            <ApplicationViews />
+            <ApplicationViews userId={this.state.userId} />
           </>
           :
           <Login setUser={this.setUser} />

@@ -38,14 +38,18 @@
     },
     {
       "id": 5,
-      "name": "soft"
+      "name": "Soft"
     }
   ],
   "orders": [
     {
       "id": 1,
-      "tacoId": 1,
-      "userId": 1
+      "tacoId": 3,
+      "userId": 2
+    },
+    {
+      "userId": 2,
+      "id": 2
     }
   ]
 }

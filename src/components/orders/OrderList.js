@@ -9,7 +9,13 @@ class OrderList extends Component {
   render() {
 
     return (
-      <OrderCard />
+      <>
+      <p>Recent orders for userEmail</p>
+      {this.props.orders.map(order =>
+          <OrderCard key={order.id} order={order} />
+      )}
+
+      </>
     )
   }
 

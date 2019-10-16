@@ -1,14 +1,31 @@
 import React, { Component } from 'react'
+import APIManager from '../../modules/APIManager';
 
 class TacoCard extends Component {
   state = {
 
   }
 
+  handleClick = () => {
+    console.log("what are the props of this component", this.props)
+    const newOrderObj = {
+      userId: this.props.userId,
+      tacoId: this.props.taco.tacoId
+    }
+    APIManager.orderTaco(newOrderObj)
+    .then(() => {
+      this.props.getOrders();
+      //call getOrders from the OrderView
+    })
+  }
+
   render() {
 
     return (
-      <h2>Taco Card</h2>
+      <>
+      <h2>{this.props.taco.name}</h2>
+      <button type="button" onClick={this.handleClick}>Order ME</button>
+      </>
     )
   }
 
