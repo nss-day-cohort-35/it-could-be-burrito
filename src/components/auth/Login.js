@@ -26,15 +26,18 @@ class Login extends Component {
     APIManager.searchUsername(this.state.email)
     .then(result => {
       console.log("what is the result of search", result)
+      if (result.length > 0){
+        this.props.setUser(result);
+        this.props.history.push("/");
+      }else {
+        APIManager.addUser(credentials)
+        .then(result => {
+          console.log("result is", result);
+          this.props.setUser(result);
+        })
+        this.props.history.push("/");
+      }
     })
-
-    // APIManager.addUser(credentials)
-    // .then(result => {
-    //   console.log("result is", result);
-    //   this.props.setUser(result);
-    // })
-    // this.props.history.push("/");
-
   }
 
   render() {
