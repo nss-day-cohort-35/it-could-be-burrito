@@ -10,7 +10,7 @@ class TacoCard extends Component {
     console.log("what are the props of this component", this.props)
     const newOrderObj = {
       userId: this.props.userId,
-      tacoId: this.props.taco.tacoId
+      tacoId: this.props.taco.id
     }
     APIManager.orderTaco(newOrderObj)
     .then(() => {
